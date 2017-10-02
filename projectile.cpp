@@ -6,17 +6,18 @@ const double E_0 = 1;
 const double w = 2;
 const double k = .5;
 const double dt = 0.001;
+const double q  = 1;
 
 enum class Type{
-  EULER, VERLET;
-}
+  EULER, VERLET
+};
 
 auto force(TState s) {
 
   double x = E_0 * std::cos(k * s.position.z - w * t) / sqrt(2);
   double y = E_0 * std::sin(k * s.position.z - w * t) / sqrt(2);
 
-  return VecR3<double>{x, y , 0};
+  return VecR3<double>{x, y , 0} * q;
  }
 
 auto euler_step(TState s, VecR3<double> accel) {
@@ -60,7 +61,10 @@ void n_steps(unsigned n, TState state0, Type type)  {
   }
 }
 
-int main() {
-  n_steps(1200, TState{0., {- E_0 / (w * w * sqrt(2)), 0, 0}, {0, - E_0 / (w * w * sqrt(2), -.25}}, Type::EULER);
+int main(char c) {
+  if(c == 'E' || c == 'e')
+    n_steps(12000, TState{0., {-E_0 / (w * w * sqrt(2)), 0, 0}, {0, E_0 / (w * sqrt(2), -.25)}}, Type::EULER);
+  else (c == 'V' || c == 'v')
+      n_steps(12000, TState{0., {-E_0 / (w * w * sqrt(2)), 0, 0}, {0, E_0 / (w * sqrt(2), -.25)}}, Type::VERLET);
   return 0;
 }
