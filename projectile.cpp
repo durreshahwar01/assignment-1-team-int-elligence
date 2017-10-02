@@ -28,7 +28,7 @@ auto euler_step(TState s, VecR3<double> accel) {
   return next;
 }
 
-auto verlet_step(Tstate s, VecR3<double> accel){
+auto verlet_step(TState s, VecR3<double> accel){
   TState next;
   next.t = s.t + dt;
 
@@ -44,14 +44,14 @@ void n_steps(unsigned n, TState state0, Type type)  {
 
     switch (type){
 
-      case EULER:
+      case Type::EULER:
       for (unsigned k = 0; k < n; ++k) {
         state = euler_step(state, force(state) / m);
         print_tstate(state);
       }
       break;
 
-      case VERLET:
+      case Type::VERLET:
       for (unsigned k = 0; k < n; ++k) {
         state = verlet_step(state, force(state) / m);
         print_tstate(state);
@@ -61,10 +61,7 @@ void n_steps(unsigned n, TState state0, Type type)  {
   }
 }
 
-int main(char c) {
-  if(c == 'E' || c == 'e')
-    n_steps(12000, TState{0., {-E_0 / (w * w * sqrt(2)), 0, 0}, {0, E_0 / (w * sqrt(2), -.25)}}, Type::EULER);
-  else (c == 'V' || c == 'v')
-      n_steps(12000, TState{0., {-E_0 / (w * w * sqrt(2)), 0, 0}, {0, E_0 / (w * sqrt(2), -.25)}}, Type::VERLET);
+int main() {
+  n_steps(12000, TState{0., {-E_0 / (w * w * sqrt(2)), 0, 0}, {0, E_0 / (w * sqrt(2)), -.25}}, Type::VERLET);
   return 0;
 }
