@@ -13,11 +13,10 @@ enum class Type{
 
 auto force(TState s) {
 
-  double x = ;
-  double y;
+  double x = E_0 * std::cos(k * s.position.z - w * t) / sqrt(2);
+  double y = E_0 * std::sin(k * s.position.z - w * t) / sqrt(2);
 
-  return VecR3<double>{0, -m * g, 0};
-
+  return VecR3<double>{x, y , 0};
  }
 
 auto euler_step(TState s, VecR3<double> accel) {
@@ -62,6 +61,6 @@ void n_steps(unsigned n, TState state0, Type type)  {
 }
 
 int main() {
-  n_steps(1200, TState{0., {0, 0, 0}, {0, 0, -.25}}, Type::EULER);
+  n_steps(1200, TState{0., {- E_0 / (w * w * sqrt(2)), 0, 0}, {0, - E_0 / (w * w * sqrt(2), -.25}}, Type::EULER);
   return 0;
 }
