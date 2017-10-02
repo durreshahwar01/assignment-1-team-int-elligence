@@ -14,8 +14,8 @@ enum class Type{
 
 auto force(TState s) {
 
-  double x = E_0 * std::cos(k * s.position.z - w * t) / sqrt(2);
-  double y = E_0 * std::sin(k * s.position.z - w * t) / sqrt(2);
+  double x = E_0 * std::cos(k * s.position.z - w * s.t) / sqrt(2);
+  double y = E_0 * std::sin(k * s.position.z - w * s.t) / sqrt(2);
 
   return VecR3<double>{x, y , 0} * q;
  }
