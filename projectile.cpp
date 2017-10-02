@@ -1,12 +1,26 @@
 #include "projectile.hpp"
+#include <cmath>
 
 const double m = 1;
-const double g = 9.8066;
+const double E_0 = 1;
+const double w = 2;
+const double k = .5;
 const double dt = 0.001;
 
-auto force(TState s) { return VecR2<double>{0, -m * g}; }
+enum class Type{
+  EULER, VERLET;
+}
 
-auto euler_step(TState s, VecR2<double> accel) {
+auto force(TState s) {
+
+  double x = ;
+  double y;
+
+  return VecR3<double>{0, -m * g, 0};
+
+ }
+
+auto euler_step(TState s, VecR3<double> accel) {
   TState next;
   next.t = s.t + dt;
   next.position = s.position + (s.velocity * dt);
@@ -14,20 +28,40 @@ auto euler_step(TState s, VecR2<double> accel) {
   return next;
 }
 
-void n_steps(unsigned n, TState state0) {
+auto verlet_step(Tstate s, VecR3<double> accel){
+  TState next;
+  next.t = s.t + dt;
+
+  return next;
+}
+
+void n_steps(unsigned n, TState state0, Type type)  {
   print_tstate(state0);
   if (n == 0)
     return;
   else {
     auto state = state0;
-    for (unsigned k = 0; k < n; ++k) {
-      state = euler_step(state, force(state) / m);
-      print_tstate(state);
+
+    switch (type){
+
+      case EULER:
+      for (unsigned k = 0; k < n; ++k) {
+        state = euler_step(state, force(state) / m);
+        print_tstate(state);
+      }
+      break;
+
+      case VERLET:
+      for (unsigned k = 0; k < n; ++k) {
+        state = verlet_step(state, force(state) / m);
+        print_tstate(state);
+      }
+      break;
     }
   }
 }
 
 int main() {
-  n_steps(1200, TState{0., {0, 0.1}, {5, 5}});
+  n_steps(1200, TState{0., {0, 0, 0}, {0, 0, -.25}}, Type::EULER);
   return 0;
 }
