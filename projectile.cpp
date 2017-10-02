@@ -31,7 +31,9 @@ auto euler_step(TState s, VecR3<double> accel) {
 auto verlet_step(Tstate s, VecR3<double> accel){
   TState next;
   next.t = s.t + dt;
-
+  next.position = s.position +(s.velocity *dt) + 0.5*accel*dt*dt;
+  VecR3<double> accelDt = force(next)/m;
+  next.velocity = s.velocity + (0.5*(accel + accelDt))*dt;
   return next;
 }
 
