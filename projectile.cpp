@@ -1,5 +1,6 @@
 #include "projectile.hpp"
 #include <cmath>
+#include <string>
 
 const double m = 1;
 const double E_0 = 1;
