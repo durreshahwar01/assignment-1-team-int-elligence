@@ -65,9 +65,9 @@ void n_steps(unsigned n, TState state0, Type type)  {
 
 int main(int argc, char* argv[]) {
 
-  if(argv[1] == "v" || argv[1] == "V")
+  if (argv[1] == std::string("-v") || argv[1] == std::string("-V"))
     n_steps(12000, TState{0., {-E_0 / (w * w * sqrt(2)), 0, 0}, {0, E_0 / (w * sqrt(2)), -.25}}, Type::VERLET);
-  if(argv[1] == "e" || argv[1] == "E")
+  else if (argv[1] == std::string("-e") || argv[1] == std::string("-E"))
     n_steps(12000, TState{0., {-E_0 / (w * w * sqrt(2)), 0, 0}, {0, E_0 / (w * sqrt(2)), -.25}}, Type::EULER);
   return 0;
 }
