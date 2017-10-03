@@ -1,6 +1,6 @@
 # `livecode-projectile`
 ---
-![](https://travis-ci.org/timtro/livecode-projectile.svg?branch=master)
+![](https://travis-ci.org/jleibovitch/assignment-1-team-int-elligence.svg?branch=master)
 
 A simple implementation of an Euler integrator for projectile motion. This program was written (mostly) live, in lecture for SOFE-2850U in Fall 2017.
 
