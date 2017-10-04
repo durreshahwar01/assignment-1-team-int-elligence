@@ -2,9 +2,10 @@
 ---
 ![](https://travis-ci.org/SOFE-2850U/assignment-1-team-int-elligence.svg?branch=master)
 
-A simple implementation of an Euler integrator for projectile motion. This program was written (mostly) live, in lecture for SOFE-2850U in Fall 2017.
+An implementation of an integrator for a particle. The main purpose of this is to show the path of the particle based on its force. It has the option to show the path using an Euler integration algorithm, or the more accurate integration algorithm: Verlet.
 
-Next week, we will add drag and stopping conditions. The drag will make the output more interesting. Implementing stopping conditions in a generic way force us to introduce lambdas and templates.
+This code was based off of GitHub user TimTro's livecode-projectile repository. This can be found at <link href= "https://github.com/Timtro/livecode-projectile/" />
+
 
 ## Compilation
 
