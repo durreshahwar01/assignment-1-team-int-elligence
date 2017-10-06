@@ -19,9 +19,10 @@ g++ -std=c++14 -o projectile projectile.cpp
 ```
 and run as
 ```bash
-./projectile [algorithm]
-
-[algorithm] : enter -v for Verlet, and -e for Euler
+./projectile <algorithm>
+```
+```
+<algorithm> : enter -v for Verlet, and -e for Euler
 ```
 and watch your terminal fill with numbers.
 
