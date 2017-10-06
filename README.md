@@ -19,9 +19,10 @@ g++ -std=c++14 -o projectile projectile.cpp
 ```
 and run as
 ```bash
-./projectile [algorithm]
+./projectile <algorithm>
 
-[algorithm] : enter -v for Verlet, and -e for Euler
+Options:
+<algorithm> : enter -v for Verlet, or -e for Euler
 ```
 and watch your terminal fill with numbers.
 
@@ -35,7 +36,7 @@ time [s], x-position [m], y-position [m], x-speed [m/s], y-speed [m/s]
 You can also insert this into a text file by
 
 ```bash
-./projectile [algorithm] > projectile.dat
+./projectile <algorithm> > projectile.dat
 ```
 
 From there you can insert it into gnuplot as follows
