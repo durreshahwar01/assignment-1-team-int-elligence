@@ -19,9 +19,10 @@ g++ -std=c++14 -o projectile projectile.cpp
 ```
 and run as
 ```bash
-./projectile [algorithm]
+./projectile <algorithm>
 
-[algorithm] : enter -v for Verlet, and -e for Euler
+Options:
+<algorithm> : enter -v for Verlet, or -e for Euler
 ```
 and watch your terminal fill with numbers.
 
@@ -35,7 +36,7 @@ time [s], x-position [m], y-position [m], x-speed [m/s], y-speed [m/s]
 You can also insert this into a text file by
 
 ```bash
-./projectile [algorithm] > projectile.dat
+./projectile <algorithm> > projectile.dat
 ```
 
 From there you can insert it into gnuplot as follows
@@ -66,9 +67,6 @@ Vector addition is defined as being able to add components of Vector1 (a,b) to c
 
 ## Question 4
 
-The type equation:
-...equation
-L<T> = 1 + T x L<T>
-...
+The type equation: L<T> = 1 + T x L<T>
 
-Provides with an algorithm for construction of a list of types. Where L is a function of T that returns either: empty, a single type, 2 types, 3 types, and so forth.
+Provides an algorithm for construction of a list of types. Where L is a function of T that returns either: empty, a single type, 2 types, 3 types, and so forth.

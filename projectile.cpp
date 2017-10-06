@@ -1,6 +1,7 @@
 #include "projectile.hpp"
 #include <cmath>
 #include <string>
+#include <iostream>
 
 const double m = 1;
 const double E_0 = 1;
@@ -65,6 +66,14 @@ void n_steps(unsigned n, TState state0, Type type)  {
 }
 
 int main(int argc, char* argv[]) {
+
+  if (argc == 1){
+    std::cout << "Enter an algorithm" << std::endl;
+    return 0;
+  } else if (argc > 2) {
+    std::cout << "Only one type of algorithm is supported" << std::endl;
+    return 0;
+  }
 
   if (argv[1] == std::string("-v") || argv[1] == std::string("-V"))
     n_steps(12000, TState{0., {-E_0 / (w * w * sqrt(2)), 0, 0}, {0, E_0 / (w * sqrt(2)), -.25}}, Type::VERLET);
