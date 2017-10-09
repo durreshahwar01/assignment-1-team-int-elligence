@@ -53,17 +53,21 @@ If you were to plot this function you should get something similar to this
 
 ## Question 2
 
-The trajectory produced by the Verlet algorithm differs from the Euler integrator, due to the Verlet
-accounting for acceleration. What this produces is a model that is more in line, as it will account
-for a change in velocity that can occur during the change in time.
+The trajectory produced by the Verlet algorithm differs from the Euler integrator, due to the Verlet algorithm
+accounts for acceleration. What this produces is a more accurate model that represents the function better, as it will account
+for a change in velocity that can occur during the change in time. Depending on the equation for the force, it can differ a little, or a lot. In this case, it does not differ much, but in other cases it may be a whole lot.
 
 ## Question 3
 
-The type-constructor VecR2<int> constitutes a vector space due to being able to define vector addition, in conjunction to "scaled" multiplication.
+The type-constructor VecR2<int> constitutes a vector space due to being able to define vector addition, in conjunction to "scaled" multiplication, and there is a zero vector e in the vector space.
 
-Vector addition is defined as being able to add components of Vector1 (a,b) to components of Vector2 (c,d). What this produces is Vector3 whose components are (a+c , b+d). For this to work the corresponding components (a & c) & (b & d) must be of the same type, which in our case is type int.
+Vector addition is defined as being able to add components of Vector1 (a,b) to components of Vector2 (c,d). What this produces is Vector3 whose components are (a+c , b+d). For this to work the corresponding components (a & c) & (b & d) must be of the same type, which in our case is type int. Therefore there is closure under addition.
 
-"Scaled" multiplication is simply being able to multiply a vector by something and produce a true result. By defining our multiplication a*Vect(b,c) == Vect(a*b , a*c), we have created a space where all vectors multiplied by am object equals a vector whose individual components are multiplied by that same object.
+"Scaled" multiplication is simply being able to multiply a vector by something and produce a true result. By defining our multiplication ```a*Vect(b,c) = Vect(a*b , a*c)```, we have created a space where all vectors multiplied by an object equals a vector whose individual components are multiplied by that same object, where the vector's components in our case are integers. Therefore there is closure under multiplication.
+
+Lastly, there must be a zero vector where ```Vect(a,b) + e = Vect(a,b)```. In this case the e is equal to Vect(0,0) since 0 is an integer, and ```Vect(a,b) + Vect(0,0) = Vect(a + 0, b + 0) = Vect(a,b)```
+
+Therefore we can conculde that the type VecR2<int> is a vector space.
 
 ## Question 4
 
