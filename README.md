@@ -67,9 +67,9 @@ Vector addition is defined as being able to add components of Vector1 (a,b) to c
 
 There Lastly must be a zero vector where ```Vect(a,b) + e = Vect(a,b)```. In this case the e is equal to Vect(0,0) since 0 is an integer, and ```Vect(a,b) + Vect(0,0) = Vect(a + 0, b + 0) = Vect(a,b)```
 
-Of course this is all great for a subspace of VectR2<int> where the integers defined within the vector are values that are equal or less than the memory.
+Of course this is all great for a subspace of VectR2<int> where the integers defined within the vector are values that are equal or less than the memory. Since all of these proofs were considered for no hardware limitations, or that the numbers were within those limits, we considered this to be a vector space.
 
-In the case of overflow, the system can produce a value where the value is not an integer. This combined with the fact that we cannot store every real integer means that the space fails.
+In the case of overflow, the system can produce undefined behaviour. This combined with the fact that we cannot store every real integer means that the space fails. Since there is one case where VecR2<int> is not closed under addition and scalar multiplication, we can conclude that due to hardware limitations, VecR2<int> is not a vecor space.
 
 
 ## Question 4
