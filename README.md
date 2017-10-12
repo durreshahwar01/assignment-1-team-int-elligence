@@ -59,15 +59,18 @@ for a change in velocity that can occur during the change in time. Depending on 
 
 ## Question 3
 
-The type-constructor VecR2<int> constitutes a vector space due to being able to define vector addition, in conjunction to "scaled" multiplication, and there is a zero vector e in the vector space.
+The type-constructor VecR2<int> would be able to constitute a vector space due to being able to define vector addition, in conjunction to "scaled" multiplication, and there is a zero vector e in the vector space. This however, is not the case due to the distinct possibility of overflow.
 
 Vector addition is defined as being able to add components of Vector1 (a,b) to components of Vector2 (c,d). What this produces is Vector3 whose components are (a+c , b+d). For this to work the corresponding components (a & c) & (b & d) must be of the same type, which in our case is type int. Therefore there is closure under addition.
 
 "Scaled" multiplication is simply being able to multiply a vector by something and produce a true result. By defining our multiplication ```a*Vect(b,c) = Vect(a*b , a*c)```, we have created a space where all vectors multiplied by an object equals a vector whose individual components are multiplied by that same object, where the vector's components in our case are integers. Therefore there is closure under multiplication.
 
-Lastly, there must be a zero vector where ```Vect(a,b) + e = Vect(a,b)```. In this case the e is equal to Vect(0,0) since 0 is an integer, and ```Vect(a,b) + Vect(0,0) = Vect(a + 0, b + 0) = Vect(a,b)```
+There Lastly must be a zero vector where ```Vect(a,b) + e = Vect(a,b)```. In this case the e is equal to Vect(0,0) since 0 is an integer, and ```Vect(a,b) + Vect(0,0) = Vect(a + 0, b + 0) = Vect(a,b)```
 
-Therefore we can conculde that the type VecR2<int> is a vector space.
+Of course this is all great for a subspace of VectR2<int> where the integers defined within the vector are values that are equal or less than the memory.
+
+In the case of overflow, the system can produce a value where the value is not an integer. This combined with the fact that we cannot store every real integer means that the space fails.
+
 
 ## Question 4
 
